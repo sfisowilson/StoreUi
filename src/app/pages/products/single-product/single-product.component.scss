@@ -1,0 +1,32 @@
+.product-image {
+    background-color: red;
+    // background-image: url(../assets/images/raquel-gambin-kS3YkVtf85U-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity {
+    max-width: 200px;
+}
+
+.thumbnail {
+    background-color: red;
+    // background-image: url(../assets/images/raquel-gambin-kS3YkVtf85U-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 150px !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.long-description {
+    min-height: 200px;
+    max-height: 300px !important;
+    overflow-y: auto;
+}

@@ -1,0 +1,28 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card">
+      <h2 class="card-header">Update Inventory</h2>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="sku">Enter SKU:</label>
+            <input type="text" name="sku" id="sku" class="form-control" [(ngModel)]="sku">
+          </div>
+          <button type="button" class="btn btn-primary" (click)="searchProduct()">Search</button>
+        </form>
+        <div *ngIf="product">
+          <p>Product name: {{ product.name }}</p>
+          <p>Current quantity: {{ product.inventory.quantity }}</p>
+          <form>
+            <div class="form-group">
+              <label for="quantity">Add to Quantity:</label>
+              <input type="number" id="quantity" class="form-control" [(ngModel)]="quantityToAdd">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="updateInventory()">Update</button>
+          </form>
+        </div>
+        <div *ngIf="error" class="alert alert-danger">
+          {{ error }}
+        </div>
+      </div>
+    </div>
+  </div>

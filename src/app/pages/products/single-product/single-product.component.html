@@ -1,0 +1,71 @@
+<div class="fluid">
+    <div class="container" *ngIf="product">
+        <div class="py-4">
+            <h3 class="mb-1">{{product.category?.name}}</h3>
+            <p><b>Home/Shop</b></p>
+        </div>
+        <div class="py-4">
+            <a (click)="goBack()"><small>&lt;&lt; Back to List</small></a>
+        </div>
+        <div class="row" >
+            <div class="col-md-6 col-sm-12" >
+                <div class="h-100 product-image" [style.background-image]="currentImage"></div>
+              
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="h-100"> <!-- Second div with a Bootstrap card -->
+                <div class="py-4">
+                  <h3 class="card-title">{{product.name}}</h3>
+                  <p><b>R {{product.price}}</b></p>
+                  <div>
+                    <small>
+                        <span>Available : </span>
+                        <span class="text-success" *ngIf="product.inventory?.quantity">In Stock ({{product.inventory.quantity}})</span>
+                        <span class="text-danger" *ngIf="!product.inventory?.quantity">Out of Stock</span>
+                    </small>
+                </div>
+                  <div class="input-group quantity py-4">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" (click)="decrementQuantity()">-</button>
+                    </div>
+                    <input type="number" class="form-control" [(ngModel)]="quantity" min="1" max="{{product.inventory.quantity}}">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" 
+                      (click)="incrementQuantity()" [disabled]="maxQuantity <= quantity">+</button>
+                    </div>
+                  </div>
+                  <div class="py-4">
+                    <button class="btn btn-primary" [disabled]="!product.inventory.quantity">Add To Cart</button>
+                  </div>
+                  <hr>
+                  <div class="py-4">
+                    <h5>information</h5>
+                    <div class="long-description">
+                        <p>{{product.shortDescription}}</p>
+                        <p>{{product.longDescription}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="row mx-auto mt-3 flex-nowrap" style="max-width: 600px; overflow-x: auto;">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-3" *ngFor="let image of productImages">
+                        <div 
+                            class="h-100 img-thumbnail thumbnail {{image.isMainImage? 'border border-success' : ''}}" 
+                            [style.background-image]="getImage(image)" 
+                            (click)="changeSelectedImage(image)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h3>warrantee information</h3>
+                <hr>
+                <h3>shipping information</h3>
+            </div>
+        </div>
+    </div>
+</div>

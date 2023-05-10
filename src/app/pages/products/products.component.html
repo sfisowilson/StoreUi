@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-3 py-3" *ngFor="let product of products">
+    <div class="card h-100">
+      <div class="product-image d-flex flex-column justify-content-end" [style.background-image]="getImageUrl(product)" (click)="navigateToProductDetails(product.id)">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{ product.shortDescription}}</p>
+        <p><b>R {{product.price}}</b></p>
+        <button href="#" class="btn btn-primary" [disabled]="!product.inventory.quantity">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

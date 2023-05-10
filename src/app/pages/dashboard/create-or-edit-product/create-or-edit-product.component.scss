@@ -1,0 +1,31 @@
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-preview, .main-image, .other-images {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.image-preview {
+    height: 400px;
+}
+
+.main-image {
+    min-height: 200px;
+    height: 100%;
+}
+
+.other-images {
+    margin: 5px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
